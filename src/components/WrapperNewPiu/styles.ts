@@ -48,6 +48,8 @@ export const Message = styled.p`
 export const LimitChar = styled.p`
   font-family: "Nunito", sans-serif;
   font-weight: bold;
+  display: flex;
+  flex-direction: row;
 `;
 
 export const Rest = styled.p`
