@@ -39,7 +39,11 @@ const WrapperNewPiu = () => {
               setMessage("Caractéres excedidos!");
             } else if (piuText.length < 12) {
               setMessage("Caractéres insuficientes!");
-            } else {
+            } 
+            else if(piuText.trim() == "") {
+              setMessage("Não digite só espaços!");
+            }
+            else {
               PublishPiu();
               setPiuText("");
             }
