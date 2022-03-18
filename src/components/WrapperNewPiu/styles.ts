@@ -43,6 +43,7 @@ export const CountInfo = styled.div`
 export const Message = styled.p`
   font-family: "Nunito", sans-serif;
   font-weight: bold;
+  color: red;
 `;
 
 export const LimitChar = styled.p`
