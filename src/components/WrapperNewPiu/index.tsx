@@ -19,13 +19,11 @@ const WrapperNewPiu = () => {
         onChange={(e) => {
           setMessage("");
           setPiuText(e.target.value);
-          if(e.target.value.length > 140 || e.target.value.length < 12) {
+          if (e.target.value.length > 140 || e.target.value.length < 12) {
             e.target.style.color = "red";
-          }
-          else {
+          } else {
             e.target.style.color = "black";
           }
-          
         }}
       ></S.TextPublish>
       <S.CountBar>
@@ -39,11 +37,9 @@ const WrapperNewPiu = () => {
           onClick={() => {
             if (piuText.length > 140) {
               setMessage("Caractéres excedidos!");
-            }
-            else if (piuText.length < 12) {
+            } else if (piuText.length < 12) {
               setMessage("Caractéres insuficientes!");
-            }
-            else {
+            } else {
               PublishPiu();
               setPiuText("");
             }
