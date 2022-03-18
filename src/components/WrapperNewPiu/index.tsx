@@ -24,15 +24,15 @@ const WrapperNewPiu = () => {
         <S.CountInfo>
           <S.Message></S.Message>
           <S.LimitChar>
-            <S.Rest>
-              {piuText.length}
-            </S.Rest>/140
+            <S.Rest>{piuText.length}</S.Rest>/140
           </S.LimitChar>
         </S.CountInfo>
-        <S.PublishButton onClick={() => {
-          PublishPiu();
-        }}>
-            Postar
+        <S.PublishButton
+          onClick={() => {
+            PublishPiu();
+          }}
+        >
+          Postar
         </S.PublishButton>
       </S.CountBar>
     </S.WrapperNewPiu>
