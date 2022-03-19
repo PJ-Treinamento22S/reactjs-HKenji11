@@ -28,7 +28,10 @@ const Piu: React.FC<PiuInterface> = (props) => {
   // Só aparece o ícone remover pro Gomes, porque o token indica que ele é o user logado
   // Aparece também o remover pro Felipe César porque ele criou um token no último dia
 
-  if (props.user.username == "BafetimbiGomis" || props.user.username == "xX_felipinho_Xx") {
+  if (
+    props.user.username == "BafetimbiGomis" ||
+    props.user.username == "xX_felipinho_Xx"
+  ) {
     return (
       <S.PiuFeed deleted={deleted}>
         <S.UserInformation>
@@ -50,7 +53,7 @@ const Piu: React.FC<PiuInterface> = (props) => {
               src={LikeIcon}
               onClick={async () => {
                 const resposta = await Like();
-                console.log(resposta.data.operation)
+                console.log(resposta.data.operation);
                 const like = resposta.data.operation === "like" ? 1 : -1;
                 setCont(cont + like);
               }}
@@ -91,7 +94,7 @@ const Piu: React.FC<PiuInterface> = (props) => {
               src={LikeIcon}
               onClick={async () => {
                 const resposta = await Like();
-                console.log(resposta.data.operation)
+                console.log(resposta.data.operation);
                 const like = resposta.data.operation === "like" ? 1 : -1;
                 setCont(cont + like);
               }}

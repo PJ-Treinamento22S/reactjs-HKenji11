@@ -45,7 +45,7 @@ const WrapperNewPiu = () => {
               setMessage("Não digite só espaços!");
             } else {
               PublishPiu();
-              console.log("OK")
+              console.log("OK");
               setPiuText("");
             }
           }}
