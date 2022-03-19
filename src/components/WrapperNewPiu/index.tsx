@@ -6,9 +6,11 @@ import api from "../../config/api";
 const WrapperNewPiu = () => {
   const [piuText, setPiuText] = useState("");
   const [message, setMessage] = useState("");
+  const [refresh, setRefresh] = useState(false);
 
   async function PublishPiu() {
     await api.post("/pius", { text: piuText });
+    window.location.reload();
   }
 
   return (
@@ -43,6 +45,7 @@ const WrapperNewPiu = () => {
               setMessage("Não digite só espaços!");
             } else {
               PublishPiu();
+              console.log("OK")
               setPiuText("");
             }
           }}
