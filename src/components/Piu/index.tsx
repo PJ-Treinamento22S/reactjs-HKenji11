@@ -50,7 +50,9 @@ const Piu: React.FC<PiuInterface> = (props) => {
             <S.IconVerify src={VerifyIcon}></S.IconVerify>
             <S.User>@{props.user.username}</S.User>
           </S.InformationBox>
-          <S.Data>{dia}/{mes}/{ano} às {hora}h:{minutos}</S.Data>
+          <S.Data>
+            {dia}/{mes}/{ano} às {hora}h:{minutos}
+          </S.Data>
         </S.UserInformation>
         <S.Piu>
           <S.PiuText>{props.text}</S.PiuText>
@@ -91,7 +93,9 @@ const Piu: React.FC<PiuInterface> = (props) => {
             <S.IconVerify src={VerifyIcon}></S.IconVerify>
             <S.User>@{props.user.username}</S.User>
           </S.InformationBox>
-          <S.Data>{dia}/{mes}/{ano} às {hora}h:{minutos}</S.Data>
+          <S.Data>
+            {dia}/{mes}/{ano} às {hora}h:{minutos}
+          </S.Data>
         </S.UserInformation>
         <S.Piu>
           <S.PiuText>{props.text}</S.PiuText>
