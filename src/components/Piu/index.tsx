@@ -1,17 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import VerifyIcon from "../../Images/verify.svg";
-import LikeIcon from "../../Images/heart.svg";
+import LikeIcon from "../../Images/heart-null.svg";
+import LikeFullIcon from "../../Images/heart.svg";
 import Talk from "../../Images/talk.svg";
 import Share from "../../Images/share.svg";
 import Save from "../../Images/save.svg";
 import Delete from "../../Images/delete.svg";
+import Photo from "../../Images/photo.svg";
 import PiuInterface from "../../interfaces/Piu";
 import api from "../../config/api";
 
 const Piu: React.FC<PiuInterface> = (props) => {
   const [cont, setCont] = useState(0);
   const [deleted, setDeleted] = useState("flex");
+  const [like, setLike] = useState(0);
+
+  useEffect(() => {
+    setCont(cont + like);
+  }, [like]);
 
   const name = props.user.first_name + "" + props.user.last_name;
 
@@ -61,12 +68,11 @@ const Piu: React.FC<PiuInterface> = (props) => {
           <S.LikeBar>
             <S.CountLike>{props.likes.length + cont}</S.CountLike>
             <S.IconLike
-              src={LikeIcon}
+              src={like === 1 ? LikeFullIcon : LikeIcon}
               onClick={async () => {
                 const resposta = await Like();
                 console.log(resposta.data.operation);
-                const like = resposta.data.operation === "like" ? 1 : -1;
-                setCont(cont + like);
+                setLike(resposta.data.operation === "like" ? 1 : -1);
               }}
             ></S.IconLike>
           </S.LikeBar>
@@ -88,10 +94,15 @@ const Piu: React.FC<PiuInterface> = (props) => {
       <S.PiuFeed deleted={deleted}>
         <S.UserInformation>
           <S.InformationBox>
-            <S.Photo src={props.user.photo}></S.Photo>
-            <S.Name>{name}</S.Name>
+            <S.Photo 
+            src={props.user.photo}
+            onError={e => {
+                        (e.target as any).src = Photo;
+                    }}
+            ></S.Photo>
+            <S.Name>{name || "User " + props.user.id.slice(0,8)}</S.Name>
             <S.IconVerify src={VerifyIcon}></S.IconVerify>
-            <S.User>@{props.user.username}</S.User>
+            <S.User>@{props.user.username || "User " + props.user.id.slice(0,8)}</S.User>
           </S.InformationBox>
           <S.Data>
             {dia}/{mes}/{ano} às {hora}h:{minutos}
@@ -104,12 +115,11 @@ const Piu: React.FC<PiuInterface> = (props) => {
           <S.LikeBar>
             <S.CountLike>{props.likes.length + cont}</S.CountLike>
             <S.IconLike
-              src={LikeIcon}
+              src={like === 1 ? LikeFullIcon : LikeIcon}
               onClick={async () => {
                 const resposta = await Like();
                 console.log(resposta.data.operation);
-                const like = resposta.data.operation === "like" ? 1 : -1;
-                setCont(cont + like);
+                setLike(resposta.data.operation === "like" ? 1 : -1);
               }}
             ></S.IconLike>
           </S.LikeBar>

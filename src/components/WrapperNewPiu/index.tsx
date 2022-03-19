@@ -21,7 +21,7 @@ const WrapperNewPiu = () => {
         onChange={(e) => {
           setMessage("");
           setPiuText(e.target.value);
-          if (e.target.value.length > 140 || e.target.value.length < 12) {
+          if (e.target.value.length > 139 || e.target.value.length < 12) {
             e.target.style.color = "red";
           } else {
             e.target.style.color = "black";
@@ -37,7 +37,7 @@ const WrapperNewPiu = () => {
         </S.CountInfo>
         <S.PublishButton
           onClick={() => {
-            if (piuText.length > 140) {
+            if (piuText.length > 139) {
               setMessage("Caractéres excedidos!");
             } else if (piuText.length < 12) {
               setMessage("Caractéres insuficientes!");
