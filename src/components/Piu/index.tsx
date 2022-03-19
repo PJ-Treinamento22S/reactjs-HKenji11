@@ -94,15 +94,17 @@ const Piu: React.FC<PiuInterface> = (props) => {
       <S.PiuFeed deleted={deleted}>
         <S.UserInformation>
           <S.InformationBox>
-            <S.Photo 
-            src={props.user.photo}
-            onError={e => {
-                        (e.target as any).src = Photo;
-                    }}
+            <S.Photo
+              src={props.user.photo}
+              onError={(e) => {
+                (e.target as any).src = Photo;
+              }}
             ></S.Photo>
-            <S.Name>{name || "User " + props.user.id.slice(0,8)}</S.Name>
+            <S.Name>{name || "User " + props.user.id.slice(0, 8)}</S.Name>
             <S.IconVerify src={VerifyIcon}></S.IconVerify>
-            <S.User>@{props.user.username || "User " + props.user.id.slice(0,8)}</S.User>
+            <S.User>
+              @{props.user.username || "User " + props.user.id.slice(0, 8)}
+            </S.User>
           </S.InformationBox>
           <S.Data>
             {dia}/{mes}/{ano} às {hora}h:{minutos}

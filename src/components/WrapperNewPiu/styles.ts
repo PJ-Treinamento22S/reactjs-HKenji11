@@ -68,10 +68,10 @@ export const PublishButton = styled.button`
   border-radius: 16px;
   border: 0;
   cursor: pointer;
-  
+
   &:hover {
     background: #ffffff;
-    color: #03045E;
-    box-shadow: inset 0 0 0 3px #03045E;
+    color: #03045e;
+    box-shadow: inset 0 0 0 3px #03045e;
   }
 `;
