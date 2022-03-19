@@ -15,6 +15,15 @@ const Piu: React.FC<PiuInterface> = (props) => {
 
   const name = props.user.first_name + "" + props.user.last_name;
 
+  const data = props.created_at.toString();
+  const dataArray = data.split("");
+  const ano = dataArray[0] + dataArray[1] + dataArray[2] + dataArray[3];
+  const mes = dataArray[5] + dataArray[6];
+  const dia = dataArray[8] + dataArray[9];
+  const hora = dataArray[11] + dataArray[12];
+  const minutos = dataArray[14] + dataArray[15];
+  const segundos = dataArray[17] + dataArray[18];
+
   async function Like() {
     const resposta = await api.post("/pius/like", { piu_id: props.id });
 
@@ -41,7 +50,7 @@ const Piu: React.FC<PiuInterface> = (props) => {
             <S.IconVerify src={VerifyIcon}></S.IconVerify>
             <S.User>@{props.user.username}</S.User>
           </S.InformationBox>
-          <S.Data>{props.created_at}</S.Data>
+          <S.Data>{dia}/{mes}/{ano} às {hora}h:{minutos}</S.Data>
         </S.UserInformation>
         <S.Piu>
           <S.PiuText>{props.text}</S.PiuText>
@@ -82,7 +91,7 @@ const Piu: React.FC<PiuInterface> = (props) => {
             <S.IconVerify src={VerifyIcon}></S.IconVerify>
             <S.User>@{props.user.username}</S.User>
           </S.InformationBox>
-          <S.Data>{props.created_at}</S.Data>
+          <S.Data>{dia}/{mes}/{ano} às {hora}h:{minutos}</S.Data>
         </S.UserInformation>
         <S.Piu>
           <S.PiuText>{props.text}</S.PiuText>
